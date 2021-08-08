@@ -1,0 +1,167 @@
+
+Nested classes are divided into two parts:  ”static Nested class” and “non – static nested class”.
+
+1.Static Nested class : A nested class defined with keyword static is known as static Nested class.
+2.Non Static Nested Class : Non static nested class is also known as “Inner Class”. Inner Classes are further divide into two types : 
+•Anonymous Class : A class which does not have any name is known as Anonymous Class.
+•Local Inner Class : A class defined within method is known as Local Inner Class.
+
+class OuterClass {
+  ....
+
+  static class StaticNestedClass {
+  .... }
+
+	class InnerClass { 
+
+		void getResult()
+		{
+
+			class LocalInnerClass
+			{
+
+
+			}
+
+
+		}
+	}
+}
+
+
+Static nested classes are accessed using the enclosing class name:
+
+OuterClass.StaticNestedClass
+For example, to create an object for the static nested class, use this syntax:
+
+OuterClass.StaticNestedClass nestedObject = new OuterClass.StaticNestedClass();
+
+
+Example for static nested class
+===============================
+public class OuterClass {  
+     public static void main(String[] args) {  
+        StaticNestedClass.display();  
+     }  
+     static class StaticNestedClass  
+     {  
+         static void display()  
+         {  
+             System.out.println("In Display of StaticNested Class");  
+
+         }  
+
+     }  
+
+ } 
+
+  }
+
+
+Non Static Nested Class:
+========================
+A nested class is a member of its enclosing class. Non-static nested classes (inner classes) have access to other members of the enclosing class, even if they are declared private.
+
+To instantiate an inner class, you must first instantiate the outer class. Then, create the inner object within the outer object with this syntax:
+
+OuterClass.InnerClass innerObject = outerObject.new InnerClass();
+
+public class OuterClass {  
+ int b = 30;  
+     public static void main(String[] args) {  
+         OuterClass.InnerClass obj = new OuterClass().new InnerClass(); 
+         obj.display();  
+     }  
+    class InnerClass {  
+         public void display()  
+         {  
+             System.out.println("In Display of non static Inner 				Class");  
+         }  
+     }  
+ } 
+
+
+Difference between static nested class  & non-static nested class
+=================================================================
+ public class UpperClass {  
+ public static class StaticInnerClass {}  
+    public class InnerClass {}  
+ public static void main(String[] args) {  
+         // works  
+         StaticInnerClass stat = new StaticInnerClass();  
+         // doesn't compile  
+         InnerClass inner = new InnerClass();  
+ }  
+} 
+
+
+Local Inner Class
+=================
+public class OuterClass {  
+     public static void main(String[] args) {  
+         OuterClass obj = new OuterClass();  
+         obj.method1();  
+     }  
+
+     class LocalClass {  
+         public void display()  
+         {  
+             System.out.println("In Display of LocalClass - Outer");  
+         }  
+     }  
+     public void method1()  
+     {  
+         //It Will call class outside the Method  
+         new LocalClass().display();  
+    
+         class LocalClass {  
+             public void display()  
+
+             {  
+
+                 System.out.println("In Display of actual LocalClass");  
+
+             }  
+
+         }  
+
+         //It Will call Inner Local Class  
+
+         new LocalClass().display();  
+
+     }  
+
+ } 
+
+
+OutPut :
+In Display of LocalClass – Outer
+In Display of actual LocalClass
+
+
+Anonymous Class
+===============
+A class which does not have name is known as “Anonymous class”. These classes are mostly used in AWT event handlers. It is good to use the Anonymouse class, if it is not going to be used any where else.
+
+public class ThreadSample {  
+     public static void main(String[] args)  
+     {  
+        Thread t = new Thread(  
+                 new Runnable(){  
+                     public void run()  
+                     {  
+                         System.out.println("In run() method");  
+
+                     }  
+                 });  
+         t.start();  
+     }  
+ } 
+
+
+Advantages of Nested Classes
+============================
+
+•Logically group classes at one place.
+•It increases encapsulation.
+•More readable and maintainable code.

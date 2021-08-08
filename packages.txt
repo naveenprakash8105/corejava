@@ -1,0 +1,16 @@
+shyam
+  -  shyam1
+        -  A.java  (nonsubclass)
+	-  B.java (subclass)
+
+  -  shyam2   
+        -  C.java (nonsubclass)
+	-  D.java (subclass)
+
+  -  shyam3
+           E.java (main class)
+
+
+c:/>shyam>javac shyam1/*.java shyam2/*.java
+
+c:/>shyam>java shyam3/E 	

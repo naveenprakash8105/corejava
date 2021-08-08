@@ -1,0 +1,244 @@
+interface is  a contract between client and component.
+
+interface College
+{
+	void jobs();
+}
+
+class Industry implements College
+{
+	public void jobs()
+	{
+		System.out.println("Interview on 24/8/2018");
+
+	}
+}
+
+class Student
+{
+	public static void main(String[] args)
+	{
+		Industry i = new Industry();
+		i.jobs();
+
+		
+		College c = new Industry();
+		c.jobs();
+	}
+}
+__________________________________________________________________________________________	
+A class can implement multiple interfaces (multiple inheritance)
+
+interface College1
+{
+	void jobs1();
+}
+
+interface College2
+{
+	void jobs2();
+}
+
+class Industry implements College1, College2
+{
+	public void jobs1()
+	{
+		System.out.println("Interview on 24/8/2018");
+
+	}
+
+	public void jobs2()
+	{
+		System.out.println("Interview on 25/8/2018");
+
+	}
+}
+
+class Student
+{
+	public static void main(String[] args)
+	{
+				
+		College c1 = new Industry();
+		College c2 = new Industry();
+		c1.jobs1();
+		c2.jobs2();
+		
+	}
+}
+_________________________________________________________________________________________
+
+An interface can be implemented by multiple classes
+
+interface College
+{
+	void jobs1();
+}
+
+class Industry1 implements College
+{
+	public void jobs1()
+	{
+		System.out.println("Interview on 24/8/2018");
+
+	}
+
+	
+}
+
+class Industry2 implements College
+{
+	
+
+	public void jobs1()
+	{
+		System.out.println("Interview on 25/8/2018");
+
+	}
+}
+
+class Student
+{
+	public static void main(String[] args)
+	{
+				
+		College c1 = new Industry1();
+		College c2 = new Industry2();
+		c1.jobs1();
+		c2.jobs1();
+		
+	}
+}
+_________________________________________________________________________________________
+Parametrized methods in interfaces
+
+interface College
+{
+	void jobs(int i);
+}
+
+class Industry1 implements College
+{
+	public void jobs(int i)
+	{
+		System.out.println("i = " + i);
+
+	}
+}
+
+
+class Industry2 implements College
+{
+	public void jobs(int i)
+	{
+		System.out.println("i = " + (i*i));
+
+	}
+}
+
+class Industry3 implements College
+{
+	public void jobs(int i)
+	{
+		System.out.println("i = " + (i*i*i));
+
+	}
+}
+
+
+class Student
+{
+	public static void main(String[] args)
+	{
+		College c1 = new Industry1();
+		Industry2 i2 = new Industry2();	
+		Industry2 i3 = new Industry3();
+
+		c1.jobs(5);  //  i=5
+
+		c1 = i2;
+		c1.jobs(5);  //  i=25	
+
+		c1=i3;
+		c1.jobs(5);  //  i=125		
+
+	}
+}
+____________________________________________________________________________________________
+
+interfaces can also be extended
+
+interface College1
+{
+	void jobs1();
+}
+
+interface College2 extends College1
+{
+	void jobs2();
+}
+
+interface College3 extends  College2
+{
+	void jobs3();
+}
+
+
+
+class Industry implements College3
+{
+	public void jobs1()
+	{
+		System.out.println("Interview on 24/8/2018");
+
+	}
+
+	public void jobs2()
+	{
+		System.out.println("Interview on 25/8/2018");
+
+	}
+
+	public void jobs3()
+	{
+		System.out.println("Interview on 26/8/2018");
+
+	}
+}
+
+class Student
+{
+	public static void main(String[] args)
+	{
+				
+		College3 c3 = new Industry();
+		c3.jobs1();
+		c3.jobs2();
+		c3.jobs3();
+		
+	}
+}
+_______________________________________________________________________________________
+
+
+
+
+
+
+
+
+
+class A
+{
+	A() { }
+	
+	class B extends A 
+	{  
+		N() { super(); 
+	} 
+	class C extends B 
+	{ 
+		// insert code here to remove the compilation error
+	}
+
+}

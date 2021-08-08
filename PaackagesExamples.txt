@@ -1,0 +1,102 @@
+package A;
+
+public class P {
+	private int i = 1;
+	int j = 2;
+	protected int k = 3;
+	public int m = 4;
+	
+	public P()
+	{
+		System.out.println(i + " " + j + " " + k + " " + m);
+	}
+
+}
+
+
+
+package A;
+
+public class Q extends P {
+	
+	
+	public Q()
+	{
+		System.out.println(j + " " + k + " " + m);
+	}
+
+}
+
+
+
+package A;
+
+public class R {
+	
+	P p1 = new P();
+	public R()
+	{
+		System.out.println( p1.j + " " + p1.k + " " + p1.m);
+	}
+
+}
+
+
+
+package B;
+import A.*;
+
+public class M extends P{
+
+	public M()
+	{
+		System.out.println(k + " " + m);
+	}
+
+	
+}
+
+
+
+
+package B;
+import A.*;
+
+public class N {
+	
+	P p1 = new P();
+	public N()
+	{
+		System.out.println(p1.m);
+	}
+
+
+}
+
+
+
+package C;
+import A.*;
+import B.*;
+
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		P p1 = new P();
+		Q q1  = new Q();
+		R r1 = new R();
+		M m1 = new M();
+		N n1 = new N();
+	
+		
+		
+
+	}
+
+}
+
+
+
+
